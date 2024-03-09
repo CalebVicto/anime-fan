@@ -24,22 +24,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Anime Fan",
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: colorSchemeDark(),
+    return SafeArea(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Anime Fan",
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: colorSchemeDark(),
+        ),
+        home: App(),
       ),
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => App(),
-      //   // '/biblioteca': (context) => Biblioteca(),
-      //   // '/actualizacion': (context) => Actualizacion(),
-      //   // '/historial': (context) => Historial(),
-      //   // '/explorar': (context) => Explorar(),
-      //   // '/mas': (context) => Mas(),
-      // },
-      home: App(),
     );
   }
 }
