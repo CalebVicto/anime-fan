@@ -1,6 +1,5 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:anime_fan/config/font_scheme.dart';
 import 'package:flutter/material.dart';
 
 class PageBiblioteca extends StatefulWidget {
@@ -113,11 +112,11 @@ class _PageBibliotecaState extends State<PageBiblioteca> {
 }
 
 class ItemMenu extends StatelessWidget {
-  bool active;
-  String title;
-  void Function() onTap;
+  final bool active;
+  final String title;
+  final void Function() onTap;
 
-  ItemMenu({
+  const ItemMenu({
     super.key,
     required this.active,
     required this.title,
