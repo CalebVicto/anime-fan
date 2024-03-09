@@ -1,7 +1,9 @@
 import 'package:anime_fan/config/routes.dart';
+import 'package:anime_fan/providers/provider.router.dart';
 import 'package:anime_fan/ui/class/class.route_buttom.dart';
 import 'package:anime_fan/ui/components/ButtonNavigation/button_nav.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
   const CustomBottomAppBar({
@@ -14,7 +16,7 @@ class CustomBottomAppBar extends StatefulWidget {
 
 class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
   List<RouteButton> routes = listRoutes();
-  int index = 0;
+  // int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +35,16 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
             routeButton: RouteButton(
               iconButton: item.iconButton,
               textButton: item.textButton,
-              activeButton: lIndex == index ? true : false,
-              routeButton: item.routeButton,
+              activeButton:
+                  context.watch<RouteProvider>().currentRoute == lIndex
+                      ? true
+                      : false,
+              routePage: item.routePage,
             ),
             onPress: () {
-              index = lIndex;
-              // Navigator.of(context).pushNamed(item.routeButton);
+              context.read<RouteProvider>().updateRoute(lIndex);
+              // index = lIndex;
+              // Navigator.of(context).pushNamed(item.routePage);
               setState(() {});
             },
           );

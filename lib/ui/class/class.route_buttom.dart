@@ -4,12 +4,12 @@ class RouteButton {
   final IconData iconButton;
   final String textButton;
   final bool activeButton;
-  final String routeButton;
+  final StatefulWidget routePage;
 
   RouteButton({
     required this.iconButton,
     required this.textButton,
     required this.activeButton,
-    required this.routeButton,
+    required this.routePage,
   });
 }
